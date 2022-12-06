@@ -1,0 +1,89 @@
+﻿@model IEnumerable<ElectricBillWebApp.Models.Entities.TblTransactionHistory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MeterNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrepaidAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RemainAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FineAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateMonthCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BillPeriod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeterNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrepaidAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FineAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateMonthCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BillPeriod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bill.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pay.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

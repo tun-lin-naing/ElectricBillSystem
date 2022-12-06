@@ -1,0 +1,90 @@
+@model IEnumerable<ElectricBillWebApp.Models.Entities.TblCustomer>
+@{
+    ViewData["Title"] = "Create Bill";
+    string? meterNo = ViewBag.MeterNo;
+    string? township = ViewBag.Township;
+}
+
+<div>
+    <h1 class="mt-4">Bill Create</h1>
+     <div class="container p-3">
+        <form asp-controller="Bill" asp-action="Bill">
+            <div class="row">
+            <div class="col">
+            <label>Meter No :</label>
+                <input class="form-control" id="meterNo" name="meterNo" value="@meterNo">
+            </div>
+            <div class="col">
+            <label>Township :</label>
+                <input class="form-control" id="township" name="township" value="@township">
+            </div>
+            <div class="col">
+                <label>Search :</label><br />
+                <button type="submit" class="btn btn-primary px-5">Search</button>
+            </div>
+        </div>
+        </form>
+    </div> 
+    <table class="table">
+    <thead>
+        <tr>            
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Barcode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MeterNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Township)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>            
+            <td>
+                <button class="btn btn-primary"><a asp-action="CreateBill" asp-route-id="@item.Id" class="text-white text-decoration-none">Create Bill</a></button> 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Barcode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeterNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Township)
+            </td>  
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+@* @section Scripts{
+<script type="text/javascript"></script>
+} *@

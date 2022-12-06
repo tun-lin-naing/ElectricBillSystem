@@ -1,0 +1,132 @@
+﻿@model ElectricBillWebApp.Models.Bill.ResPayBill
+@{
+    ViewData["Title"] = "Pay Bill";
+}
+
+<div>
+    <h1 class="mt-4">Pay Bill</h1>
+   <form asp-controller="PayHistories" asp-action="Create">
+        <div class="card mb-4">
+        <div class="container p-3">
+            <div class="row d-none">
+                <div class="col">
+                Customer ID:
+                   <input hidden class="form-control" type="text" name="CustomerId" value="@Html.DisplayFor(model => model.CustomerId)" />
+                </div>                
+            </div>
+             <div class="row d-none">
+                <div class="col">
+                Bill ID:
+                   <input hidden class="form-control" type="text" name="BillId" value="@Html.DisplayFor(model => model.BillId)" />
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col">
+                Meter No:
+                   <input disabled="disabled"  class="form-control" type="text" name="MeterNo" value="@Html.DisplayFor(model => model.MeterNo)" />
+                </div>
+                <div class="col">
+                Tsp No:
+                    <input disabled="disabled" class="form-control" type="text" name="Township" value="@Html.DisplayFor(model => model.Township)" />
+                </div>
+            </div>
+            <div class="card mb-4 my-2">
+                <div class="row row-cols-2 p-2">
+                    <div class="col">
+                        <div class="py-2">
+                        Customer Name:
+                            <input disabled="disabled" class="form-control" type="text" name="Name" value="@Html.DisplayFor(model => model.Name)" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Last Unit:
+                            <input disabled="disabled" class="form-control" type="number" name="LastUnit" value="@Html.DisplayFor(model => model.LastUnit)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Current Unit:
+                            <input disabled="disabled" class="form-control" type="number" name="CurrentUnit" value="@Html.DisplayFor(model => model.CurrentUnit)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Read Date:
+                            <input disabled="disabled" class="form-control" type="text" name="ReadDate" asp-format="{mm/dd/yyyy}" value="@Model.ReadDate">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Due Date:
+                            <input disabled="disabled" class="form-control" type="text" name="DueDate" asp-format="{mm/dd/yyyy}" value="@Model.DueDate">
+                        </div>
+                    </div> 
+                     <div class="col">
+                        <div class="py-2">
+                        Bill Period:
+                            <input disabled="disabled" class="form-control" type="text" name="BillPeriod" value="@Model.BillPeriod">
+                        </div>
+                    </div> 
+                    <div class="col">
+                        <div class="py-2">
+                        Prepaid Amount:
+                            <input disabled="disabled" class="form-control" type="text" value="@Html.DisplayFor(model => model.PrepaidAmount)" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Remain Amount:
+                            <input disabled="disabled" class="form-control" type="number" value="@Html.DisplayFor(model => model.RemainAmount)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Fine Amount:
+                            <input disabled="disabled" class="form-control" type="text" value="@Html.DisplayFor(model => model.FineAmount)" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Total Amount:
+                            <input disabled="disabled" class="form-control" type="number" name="TotalAmount" value="@Html.DisplayFor(model => model.TotalAmount)">
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="py-2">
+                        Pay Amount:
+                            <input disabled="disabled" class="form-control" type="number" name="PayAmount" value="@Html.DisplayFor(model => model.Amount)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Amount:
+                            <input class="form-control" type="number" name="Amount">
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="py-2">
+                        Pay Method:
+                             <select asp-for="CustomerId" class="form-control" name="PayMethodString" >
+                                 @foreach (var pay in @Model.PayMethod)
+                                 {
+                                     <option value="@pay.PayMethodName">@pay.PayMethodName</option>
+                                 }
+                             </select>
+                        </div>
+                    </div>
+                       <div class="col">
+                        <div class="py-2">
+                        
+                        </div>
+                    </div>
+                    <div class="py-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </form>
+   
+</div>

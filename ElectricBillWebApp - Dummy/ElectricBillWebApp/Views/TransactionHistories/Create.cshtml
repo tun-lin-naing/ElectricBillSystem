@@ -1,0 +1,62 @@
+﻿@model ElectricBillWebApp.Models.Entities.TblTransactionHistory
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TblTransactionHistory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerId" class="control-label"></label>
+                <select asp-for="CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillId" class="control-label"></label>
+                <select asp-for="BillId" class ="form-control" asp-items="ViewBag.BillId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PayId" class="control-label"></label>
+                <select asp-for="PayId" class ="form-control" asp-items="ViewBag.PayId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MeterNo" class="control-label"></label>
+                <input asp-for="MeterNo" class="form-control" />
+                <span asp-validation-for="MeterNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrepaidAmount" class="control-label"></label>
+                <input asp-for="PrepaidAmount" class="form-control" />
+                <span asp-validation-for="PrepaidAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RemainAmount" class="control-label"></label>
+                <input asp-for="RemainAmount" class="form-control" />
+                <span asp-validation-for="RemainAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FineAmount" class="control-label"></label>
+                <input asp-for="FineAmount" class="form-control" />
+                <span asp-validation-for="FineAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillPeriod" class="control-label"></label>
+                <input asp-for="BillPeriod" class="form-control" />
+                <span asp-validation-for="BillPeriod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

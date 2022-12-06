@@ -1,0 +1,74 @@
+@model ElectricBillWebApp.Models.Bill.ResCreateBill
+@{
+    ViewData["Title"] = "Create Bill";
+}
+
+<div>
+    <h1 class="mt-4">Create Bill</h1>
+   <form asp-controller="BillHistories" asp-action="Create">
+        <div class="card mb-4">
+        <div class="container p-3">
+            <div class="row d-none">
+                <div class="col">
+                Meter No:
+                   <input hidden class="form-control" type="text" name="CustomerId" value="@Html.DisplayFor(model => model.CustomerId)" />
+                </div>                
+            </div>
+            <div class="row">
+                <div class="col">
+                Meter No:
+                   <input class="form-control" type="text" name="MeterNo" value="@Html.DisplayFor(model => model.MeterNo)" />
+                </div>
+                <div class="col">
+                Tsp No:
+                    <input class="form-control" type="text" name="Township" value="@Html.DisplayFor(model => model.Township)" />
+                </div>
+            </div>
+            <div class="card mb-4 my-2">
+                <div class="row row-cols-2 p-2">
+                    <div class="col">
+                        <div class="py-2">
+                        Customer Name:
+                            <input class="form-control" type="text" name="Name" value="@Html.DisplayFor(model => model.Name)" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Last Unit:
+                            <input class="form-control" type="number" name="LastUnit" value="@Html.DisplayFor(model => model.LastUnit)">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Current Unit:
+                            <input class="form-control" type="number" name="CurrentUnit">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Read Date:
+                            <input class="form-control" type="date" name="ReadDate" value="@Model.ReadDate">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="py-2">
+                        Due Date:
+                            <input class="form-control" type="date" name="DueDate" value="@Model.DueDate">
+                        </div>
+                    </div> 
+                     <div class="col">
+                        <div class="py-2">
+                        Bill Period:
+                            <input class="form-control" type="text" name="BillPeriod" value="@Model.BillPeriod">
+                        </div>
+                    </div> 
+                    <div class="py-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </form>
+   
+</div>

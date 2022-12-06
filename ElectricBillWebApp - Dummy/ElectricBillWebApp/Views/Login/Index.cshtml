@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ElectricBillWebApp.Models.User.ReqUserLogin
+@{
+    @* ViewBag.AppsName = Language.AppName; *@
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+<div class="row justify-content-md-center mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                Login
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email)
+                        @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                    </div>
+                    <div class="form-group mt-1">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Login"/>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
